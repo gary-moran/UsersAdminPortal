@@ -1,0 +1,34 @@
+﻿@model UserAdminViewModel
+
+<!-- Vue App -->
+<div id="app">
+
+    <navigation-bar name="Users Admin Portal"></navigation-bar>
+
+    <!-- Message Bar-->
+    <div id="messageBar" class="alert-messages"></div>
+
+    <!-- Vue Data Table -->
+    <div class="container body-content">
+        <br />
+        <h2>Users</h2>
+        <div class="container">
+
+            <h4>Selected: {{selectedRow}}</h4>
+
+            <vue-data-table v-on:select-row="selectRow"
+                            v-on:unselect-row="unselectRow"
+                            data-source="@Model.WebApi"
+                            :show-entries="[1000]"
+                            :hide-key=false
+                            :column-names="['ID','First Name','Last Name']">
+            </vue-data-table>
+
+        </div>
+    </div>
+    <!-- END Vue Data Table -->
+    <!-- Footer -->
+    <page-footer name="Users Admin Portal"></page-footer>
+
+</div>
+<!-- END Vue App -->
